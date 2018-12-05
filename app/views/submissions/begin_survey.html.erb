@@ -5,6 +5,7 @@
 
     <%= form_tag create_submission_path do %>
         <%= text_field_tag :email, "", placeholder:"Your email", class:"email-field" %>
+        <%= hidden_field_tag 'survey_id', @survey_template_id  %>
         <%= submit_tag "Begin!", class:"btn btn-primary btn-custom" %>
     <% end %>
 
