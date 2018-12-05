@@ -1,0 +1,13 @@
+
+
+    <div id="welcome" class="jumbotron">
+      <h1 class="display-4">Hi there!</h1>
+      <p class="lead">Choose an assessment to begin:</p>
+      <hr class="my-4">
+
+        <ul class="assessments">
+          <% @assessments.each do |assessment| %>
+                <li><%= link_to assessment.name, begin_survey_path(:id => assessment.id) %></li>
+          <% end %>
+         </ul>
+    </div>

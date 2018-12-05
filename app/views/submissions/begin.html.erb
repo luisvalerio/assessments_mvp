@@ -1,0 +1,11 @@
+
+<div id="welcome" class="jumbotron centered">
+  <h2 class="display-3">Please enter your email to begin:</h2>
+  <hr class="my-4">
+
+    <%= form_tag create_submission_path do %>
+        <%= text_field_tag :email, "", placeholder:"Your email", class:"email-field" %>
+        <%= submit_tag "Begin!", class:"btn btn-primary btn-custom" %>
+    <% end %>
+
+</div>

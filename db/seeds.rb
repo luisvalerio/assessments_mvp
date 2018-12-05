@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+SurveyTemplate.create!(
+    name: "Survey 1"
+)
+puts "Created Survey Template 1"
+
+5.times do |question|
+    Question.create!(
+        question_text: "What would you answer to this question (#{question})?",
+        survey_template_id: SurveyTemplate.last.id
+    )
+end
+puts "Created 5 questions for Survey Template 1"

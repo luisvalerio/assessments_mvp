@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :questions
+  resources :survey_templates
+
+  root to: 'pages#home'
+  get 'begin_survey/:id', to: 'submissions#begin', as: "begin_survey"
+  post 'create_submission', to: 'submissions#create', as: "create_submission"
+
 end
