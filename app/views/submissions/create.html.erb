@@ -1,0 +1,14 @@
+<div id="welcome" class="jumbotron centered">
+
+    <span class="left">This is question <%= @question_index+1 %> out of <%= @questions_count %></span>
+  <h2 class="display-3"><%= @survey_submission.survey_template.questions[@question_index].question_text %></h2>
+  <hr class="my-4">
+
+    <%= form_tag create_submission_path do %>
+        <%= text_area_tag :answer, "", placeholder:"Your answer", class: "answer-text" %>
+        <%= hidden_field_tag 'survey_id', @survey_template_id  %>
+        <%= hidden_field_tag 'submission_id', @survey_submission.id  %>
+        <%= submit_tag "Next", class:"btn btn-primary btn-custom" %>
+    <% end %>
+
+</div>
