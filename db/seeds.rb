@@ -13,7 +13,7 @@ puts "Created Survey Template 1"
 
 5.times do |question|
     Question.create!(
-        question_text: "What would you answer to this question (#{question})?",
+        question_text: "What would you answer to this question (#{question + 1})?",
         survey_template_id: SurveyTemplate.last.id
     )
 end

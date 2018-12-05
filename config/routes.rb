@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'begin_survey/:id', to: 'submissions#begin_survey', as: "begin_survey"
   post 'create_submission', to: 'submissions#create', as: "create_submission"
+  get 'thankyou', to:'submissions#thankyou'
 
 end
