@@ -1,6 +1,6 @@
 <div id="welcome" class="jumbotron centered">
 
-    <span class="left">This is question <%= @question_index+1 %> out of <%= @questions_count %></span>
+    <span class="left">This is question <%= @question_index+1 %> out of <%= @questions_count %></span> <br> <strong><span id="time" class="right"></span></strong>
   <h2 class="display-3"><%= @survey_submission.survey_template.questions[@question_index].question_text %></h2>
   <hr class="my-4">
 
@@ -12,3 +12,29 @@
     <% end %>
 
 </div>
+
+<script>
+    function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            $('form').submit();
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var timeInSeconds =  <%= @question_time %>,
+        display = document.querySelector('#time');
+    startTimer(timeInSeconds, display);
+};
+</script>
